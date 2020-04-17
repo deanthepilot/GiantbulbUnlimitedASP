@@ -1,0 +1,76 @@
+/********************************************************************************************************************************/
+/*  Date	Name	Description                                 																*/
+/*  ----------------------------------------------------------------------------------------------------------------------------*/
+/*                                                                  															*/
+/*  1/19/2018  JNovikoff   Initial deployment. Script to create GU database   													*/
+/********************************************************************************************************************************/
+
+DROP DATABASE IF EXISTS gusystem;
+CREATE DATABASE gusystem;
+USE gusystem;
+
+CREATE TABLE IF NOT EXISTS employee
+(
+	employeeID		INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	firstName		VARCHAR(255) NOT NULL,
+	lastName		VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS inquiry
+(
+	inquiryID		INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	inquiryName 	VARCHAR(255) NOT NULL,
+	inquiryEmail 	VARCHAR(255) NOT NULL,
+	inquiryPhone 	BIGINT NOT NULL,
+	inquiryPrice 	VARCHAR(64) NOT NULL,
+	inquiryMsg		VARCHAR(500) NOT NULL,
+	employeeID		INT NOT NULL REFERENCES employee(employeeID)
+);
+
+INSERT INTO employee
+	(firstName, lastName)
+VALUES 
+	('Jeremy', 'Rodriguez'),
+	('Neave', 'Tyson'),
+	('Waqas', 'Gonzales'),
+	('Cassidy', 'Dolan'),
+	('Ammarah', 'Duran'),
+	('Bethanie', 'Sexton'),
+	('Safiyah', 'Ballard'),
+	('Shae', 'Timms'),
+	('Willis', 'Kearns'),
+	('Paige', 'Frazier'),
+	('Inaaya', 'Medina'),
+	('Lesley', 'Glover'),
+	('Emilia', 'Shannon'),
+	('Junaid', 'Stout'),
+	('Darcie', 'North'),
+	('Alessandra', 'Harrington'),
+	('Fynley', 'Faulkner'),
+	('Chandler', 'Cisenros'),
+	('Hasnain', 'Salt'),
+	('Kailan', 'Dale');
+
+INSERT INTO inquiry
+	(inquiryName, inquiryEmail, inquiryPhone, inquiryPrice, inquiryMsg, employeeID)
+VALUES
+	('Tiah', 'tiahb@gmail.com', 4966490074, '200-300', 'Lorem ipsum dolor sit amet', 4),
+	('Tymon', 'tymonc@gmail.com', 6422191218, '100-200', 'Lorem ipsum dolor sit amet', 4),
+	('Orlando', 'orlandof@gmail.com', 6649527423, '200-300', 'Lorem ipsum dolor sit amet', 4),
+	('Harlee', 'harleeo@gmail.com', 8407674410, '300-400', 'Lorem ipsum dolor sit amet', 4),
+	('Preston', 'prestone@gmail.com', 4508683461, '300-400', 'Lorem ipsum dolor sit amet', 4),
+	('Louise', 'louisel@gmail.com', 7133921980, '100-200', 'Lorem ipsum dolor sit amet', 4),
+	('Krystal', 'krystalg@gmail.com', 3134511761, '500-600', 'Lorem ipsum dolor sit amet', 4),
+	('Ritchie', 'ritchieb@gmail.com', 5887322135, '800-900', 'Lorem ipsum dolor sit amet', 4),
+	('Mayur', 'mayurs@gmail.com', 9347617135, '100-200', 'Lorem ipsum dolor sit amet', 4),
+	('Yaseen', 'yaseenm@gmail.com', 4886017988, '200-300', 'Lorem ipsum dolor sit amet', 4),
+	('Scarlett', 'scarletth@gmail.com', 6325293570, '900-1000', 'Lorem ipsum dolor sit amet', 4),
+	('Berat', 'berath@gmail.com', 4478407983, '200-300', 'Lorem ipsum dolor sit amet', 4),
+	('Rian', 'rianw@gmail.com', 5248999476, '500-600', 'Lorem ipsum dolor sit amet', 4),
+	('Petra', 'petraz@gmail.com', 6287560769, '600-700', 'Lorem ipsum dolor sit amet', 4),
+	('Lexi', 'lexip@gmail.com', 5653634044, '700-800', 'Lorem ipsum dolor sit amet', 4),
+	('Viktoria', 'viktoriam@gmail.com', 5653374368, '900-1000', 'Lorem ipsum dolor sit amet', 4),
+	('Madeline', 'madelinep@gmail.com', 4598360433, '200-300', 'Lorem ipsum dolor sit amet', 4),
+	('Davey', 'daveye@gmail.com', 3646084659, '100-200', 'Lorem ipsum dolor sit amet', 4),
+	('Arwa', 'arwak@gmail.com', 5908242223, '400-500', 'Lorem ipsum dolor sit amet', 4),
+	('Shelby', 'shelbyp@gmail.com', 4474168773, '200-300', 'Lorem ipsum dolor sit amet', 4);
